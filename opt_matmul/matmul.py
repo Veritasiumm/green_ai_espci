@@ -21,9 +21,9 @@ def matmul_numpy_sum(A, B, M, N, K):
 	return C
 
 
-M = 512
-N = 512
-K = 512
+M = 4096
+N = 4096
+K = 4096
 
 np.random.seed(0)
 
@@ -31,9 +31,9 @@ A = (np.random.random((M,K))-0.5)*0.1
 B = (np.random.random((K,N))-0.5)-0.1
 
 #### Select one ####
-C = matmul_naive(A,B,M,N,K)
+#C = matmul_naive(A,B,M,N,K)
 #C = matmul_numpy_sum(A, B, M, N, K)
-#C = A@B
+C = A@B
 #C = np.matmul(A,B)
 #C = np.dot(A,B)
 

@@ -21,9 +21,9 @@ def matmul_numpy_sum(A, B, M, N, K):
 	return C
 
 
-M = 256
-N = 256
-K = 256
+M = 512
+N = 512
+K = 512
 
 np.random.seed(0)
 

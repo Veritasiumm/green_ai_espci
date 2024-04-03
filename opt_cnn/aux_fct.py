@@ -90,10 +90,9 @@ def init_data_gen(test_mode = 0):
 	targets_val = np.zeros((nb_val,nb_class), dtype="float32")
 
 
-
 def create_train_aug(i, rf_id, rf_scale):
 
-	patch = np.zeros((image_size, image_size,3))
+	patch = np.zeros((image_size, image_size,3), dtype="uint8")
 
 	for l in range(0,block_size):
 
@@ -103,7 +102,7 @@ def create_train_aug(i, rf_id, rf_scale):
 			patch[:,:,depth] = np.reshape(raw_train_data[r_id,depth*flat_image_slice:(depth+1)*flat_image_slice], (32,32))
 		
 		l_scale = int(rf_scale[l]*(max_scale-min_scale)+min_scale)
-		l_translate = int(np.maximum(0,(image_size+(image_size/8.0)-l_scale)*0.5))
+		l_translate = int(np.maximum(0,(image_size+(image_size/4.0)-l_scale)*0.5))
 		
 		transform = A.Compose([
 			#Affine here act more as an aspect ratio transform than scaling
